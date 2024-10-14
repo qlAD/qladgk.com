@@ -1,11 +1,13 @@
 {
+  "name": "qladgk.com",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "start": "turbo run start"
   },
   "devDependencies": {
     "eslint": "^8.31.0",
