@@ -29,7 +29,7 @@ function MediaContents() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/assets/data/mediaData.json');
+        const response = await fetch('/assets/data/neodb/movie.json');
         if (!response.ok) {
           throw new Error('网络错误');
         }
@@ -133,7 +133,9 @@ function MediaContents() {
           >
             <div className="poster">
               <Image
-                src={media.item.cover_image_url}
+                src={`/assets/images/neodb/cover/${media.item.cover_image_url
+                  .split('/')
+                  .pop()}`} // 从 URL 中提取文件名并使用本地路径
                 alt={media.item.title}
                 width={300}
                 height={150}
