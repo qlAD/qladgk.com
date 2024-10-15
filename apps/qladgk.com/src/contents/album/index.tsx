@@ -21,9 +21,12 @@ function BlurFadeDemo() {
 
         const data: ImageResponse = await response.json();
         setImages(data.images);
-      } catch (error: any) {
-        console.error('获取图片失败:', error);
-        setError(error.message);
+      } catch (fetchError: unknown) {
+        if (fetchError instanceof Error) {
+          setError(fetchError.message);
+        } else {
+          setError('未知错误');
+        }
       }
     };
 

@@ -24,6 +24,7 @@ export default function handler(
 
     res.status(200).json({ images });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('读取图片错误:', error);
     res.status(500).json({ images: [], error: '读取图片失败' });
   }

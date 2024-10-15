@@ -1,26 +1,34 @@
+/* eslint-disable react/no-unknown-property */
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 
-import 'react-medium-image-zoom/dist/styles.css'; // 引入样式
+import 'react-medium-image-zoom/dist/styles.css';
+
+interface Essay {
+  id: string;
+  username: string;
+  time: string;
+  content: string;
+  avatar_url: string;
+  images?: string[];
+}
 
 function EssayContents() {
-  const [essays, setEssays] = useState([]);
+  const [essays, setEssays] = useState<Essay[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('/assets/data/essays.json');
         if (!response.ok) throw new Error('网络错误');
-        const data = await response.json();
+        const data: Essay[] = await response.json();
         setEssays(data);
       } catch (err) {
-        setError(err.message);
+        setError(err instanceof Error ? err.message : '未知错误');
       } finally {
         setLoading(false);
       }
@@ -34,12 +42,12 @@ function EssayContents() {
 
   return (
     <div className={clsx('content-wrapper mdx-contents')}>
-      {essays.map((essay, index) => (
-        <div key={index} className="essay">
+      {essays.map((essay) => (
+        <div key={essay.id} className="essay">
+          {' '}
+          {/* 使用唯一标识符作为 key */}
           <div className="header">
             <div className="avatar-wrapper">
-              {' '}
-              {/* 使用容器包裹头像 */}
               <Image
                 src={essay.avatar_url}
                 alt={`${essay.username} 的头像`}
@@ -54,14 +62,15 @@ function EssayContents() {
             </div>
           </div>
           <p className="content">{essay.content}</p>
-
           {essay.images && (
             <div className="images-container">
               {(Array.isArray(essay.images)
                 ? essay.images
                 : [essay.images]
               ).map((img, imgIndex) => (
-                <Zoom key={imgIndex}>
+                <Zoom key={img}>
+                  {' '}
+                  {/* 使用唯一的 img URL 作为 key */}
                   {essay.images.length > 1 ? ( // 判断图片数量
                     <div className="image-wrapper">
                       <Image
