@@ -22,27 +22,31 @@ module.exports = {
     }
 
     if (path === '/today-i-learned') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
+    }
+
+    if (path === '/essay') {
+      return defaultValue(0.6);
     }
 
     if (path === '/album') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
     }
 
     if (path === '/media') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
     }
 
     if (path === '/projects') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
     }
 
     if (path === '/links') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
     }
 
     if (path === '/message-board') {
-      return defaultValue(0.9);
+      return defaultValue(0.6);
     }
 
     return defaultValue();
