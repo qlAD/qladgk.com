@@ -25,7 +25,7 @@ interface ButtonContactMeProps {
 function ButtonContactMe({ onMouseEnter, onMouseLeave }: ButtonContactMeProps) {
   return (
     <Link
-      href="/work/contact"
+      href="mailto:qlad_adgk@163.com"
       className={clsx(
         'button button--solid min-w-[128px]',
         'shadow',
@@ -60,7 +60,7 @@ function ButtonResume() {
   return (
     <Link
       rel="noreferrer nofollow"
-      href="/404"
+      href="/about-me"
       className={clsx('button button--ghost px-2', 'md:button--big md:px-2')}
     >
       <DocumentIcon className={clsx('h-5 w-5')} />
