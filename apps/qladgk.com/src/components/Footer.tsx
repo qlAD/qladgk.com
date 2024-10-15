@@ -192,9 +192,9 @@ function Footer() {
                 <FooterGroup
                   title="我的"
                   links={[
+                    { title: '回忆录', href: '/essay', label: 'new' },
                     { title: '相册集', href: '/album', label: 'new' },
                     { title: '书影音', href: '/media', label: 'new' },
-                    { title: '关于我', href: '/about-me' },
                   ]}
                 />
                 <FooterGroup
@@ -205,6 +205,8 @@ function Footer() {
                     { title: '留言反馈', href: '/message-board' },
                   ]}
                 />
+              </div>
+              <div className={clsx('flex', 'sm:gap-16')}>
                 <FooterGroup
                   title="协议"
                   links={[
@@ -222,8 +224,6 @@ function Footer() {
                     },
                   ]}
                 />
-              </div>
-              <div className={clsx('flex', 'sm:gap-16')}>
                 <FooterGroup
                   title="服务"
                   links={[

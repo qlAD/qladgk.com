@@ -1,16 +1,37 @@
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import BlurFade from '@/components/magicui/BlurFade';
 
-const images = Array.from({ length: 20 }, (_, i) => {
-  const isLandscape = i % 2 === 0;
-  const width = isLandscape ? 800 : 600;
-  const height = isLandscape ? 600 : 800;
-  return `https://picsum.photos/seed/${i + 1}/${width}/${height}`;
-});
+interface ImageResponse {
+  images: string[];
+  error?: string;
+}
 
 function BlurFadeDemo() {
+  const [images, setImages] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch('/api/images');
+        if (!response.ok) throw new Error('网络错误');
+
+        const data: ImageResponse = await response.json();
+        setImages(data.images);
+      } catch (error: any) {
+        console.error('获取图片失败:', error);
+        setError(error.message);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  if (error) return <p>图片加载失败: {error}</p>;
+
   return (
     <section id="photos">
       <div className="columns-2 gap-4 sm:columns-3">
@@ -21,7 +42,7 @@ function BlurFadeDemo() {
               src={imageUrl}
               width={800}
               height={600}
-              alt={`Random stock image ${idx + 1}`}
+              alt={`Album image ${idx + 1}`}
             />
           </BlurFade>
         ))}

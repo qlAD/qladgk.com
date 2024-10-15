@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.qladgk.com',
+  siteUrl: 'https://qladgk.com',
   priority: 0.6,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
@@ -21,16 +21,28 @@ module.exports = {
       return defaultValue(0.9);
     }
 
-    if (path === '/projects') {
-      return defaultValue(0.9);
-    }
-
     if (path === '/today-i-learned') {
       return defaultValue(0.9);
     }
 
-    if (path.indexOf('/work') === 0) {
-      return defaultValue(0.8);
+    if (path === '/album') {
+      return defaultValue(0.9);
+    }
+
+    if (path === '/media') {
+      return defaultValue(0.9);
+    }
+
+    if (path === '/projects') {
+      return defaultValue(0.9);
+    }
+
+    if (path === '/links') {
+      return defaultValue(0.9);
+    }
+
+    if (path === '/message-board') {
+      return defaultValue(0.9);
     }
 
     return defaultValue();

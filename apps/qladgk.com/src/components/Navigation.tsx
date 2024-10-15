@@ -11,6 +11,7 @@ import NavLogo from '@/components/navigations/NavLogo';
 import useOnScroll from '@/hooks/useOnScroll';
 
 const myLinks = [
+  { title: '回忆录', href: '/essay' },
   { title: '相册集', href: '/album' },
   { title: '书影音', href: '/media' },
 ];
