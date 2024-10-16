@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { BilibiliIcon, GitHubIcon } from '@/components/Icons';
+import { BilibiliIcon, GitHubIcon, TravellingIcon } from '@/components/Icons';
 import NavIcon from '@/components/navigations/NavIcon';
 import NavIconQuickAccess from '@/components/navigations/NavIconQuickAccess';
 import NavLink from '@/components/navigations/NavLink';
@@ -72,6 +72,13 @@ function Navbar() {
             </ul>
           </nav>
           <ul className={clsx('flex items-center')}>
+            <li className={clsx('hidden', 'sm:block')}>
+              <NavIcon
+                href="https://www.travellings.cn/go.html"
+                icon={<TravellingIcon className={clsx('h-5 w-5')} />}
+                title="Travelling"
+              />
+            </li>
             <li className={clsx('hidden', 'sm:block')}>
               <NavIcon
                 href="https://github.com/qlAD"

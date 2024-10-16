@@ -8,7 +8,7 @@ import PostPreview from '@/contents/blog/PostPreview';
 import type { TPostFrontMatter } from '@/types';
 
 const PINNED_POST = 'the-2024-retrospective';
-const POSTS_PER_PAGE = 5;
+const POSTS_PER_PAGE = 10;
 
 export type BlogContentsProps = {
   posts: Array<{
