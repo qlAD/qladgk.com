@@ -74,13 +74,6 @@ function Navbar() {
           <ul className={clsx('flex items-center')}>
             <li className={clsx('hidden', 'sm:block')}>
               <NavIcon
-                href="https://www.travellings.cn/go.html"
-                icon={<TravellingIcon className={clsx('h-5 w-5')} />}
-                title="Travelling"
-              />
-            </li>
-            <li className={clsx('hidden', 'sm:block')}>
-              <NavIcon
                 href="https://github.com/qlAD"
                 icon={<GitHubIcon className={clsx('h-5 w-5')} />}
                 title="GitHub"
@@ -91,6 +84,13 @@ function Navbar() {
                 href="https://space.bilibili.com/505243833"
                 icon={<BilibiliIcon className={clsx('h-5 w-5')} />}
                 title="Bilibili"
+              />
+            </li>
+            <li className={clsx('hidden', 'sm:block')}>
+              <NavIcon
+                href="https://www.travellings.cn/go.html"
+                icon={<TravellingIcon className={clsx('h-5 w-5')} />}
+                title="Travelling"
               />
             </li>
             <li className={clsx('hidden', 'sm:block')}>
