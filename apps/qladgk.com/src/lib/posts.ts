@@ -9,7 +9,9 @@ const postsDirectory = path.join(process.cwd(), 'src/pages/blog');
 export const getPostSlugs = () => {
   const fileNames = fs.readdirSync(postsDirectory);
 
-  return fileNames.map((fileName) => fileName.replace(/\.mdx$/, ''));
+  return fileNames
+    .filter((name) => name.endsWith('.mdx'))
+    .map((fileName) => fileName.replace(/\.mdx$/, ''));
 };
 
 export const getPostFrontMatter = (slug: string): TPostFrontMatter => {
@@ -47,4 +49,16 @@ export const getSortedPosts = () => {
       return 0;
     }
   );
+};
+
+// 根据分类获取文章
+export const getPostsByCategory = (category: string) => {
+  const posts = getSortedPosts();
+  return posts.filter((post) => post.frontMatter.category === category);
+};
+
+// 根据标签获取文章
+export const getPostsByTag = (tag: string) => {
+  const posts = getSortedPosts();
+  return posts.filter((post) => post.frontMatter.tags?.includes(tag));
 };

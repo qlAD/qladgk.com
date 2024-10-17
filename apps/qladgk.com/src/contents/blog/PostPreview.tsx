@@ -30,7 +30,7 @@ function PostPreview({
     <article lang={lang}>
       <Link
         key={slug}
-        href={`blog/${slug}`}
+        href={`/blog/${slug}`}
         className={clsx(
           'group relative mb-6 block overflow-hidden bg-gradient-to-t',
           'sm:mb-0 sm:rounded-2xl',

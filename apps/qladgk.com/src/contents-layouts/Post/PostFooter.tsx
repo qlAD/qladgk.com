@@ -39,14 +39,14 @@ function PostFooter({ tags, category }: PostFooterProps) {
       <div className={clsx('flex flex-wrap gap-x-1 gap-y-2')}>
         文章分类在
         <Link
-          href="/blog"
+          href={`/blog/category/${category}`}
           className={clsx('text-accent-600 font-bold', 'dark:text-accent-400')}
         >
           {category}
         </Link>
         <div className={clsx('flex flex-wrap gap-1')}>
           {tags.map((tag) => (
-            <Chip href="/blog" key={tag}>
+            <Chip href={`/blog/tag/${tag}`} key={tag}>
               #{tag}
             </Chip>
           ))}
