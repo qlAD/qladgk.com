@@ -40,6 +40,8 @@ sitemap.xml
 # prevent accidentally committing and pushing draft files/directories
 *((DRAFT))*
 
+# 站长平台验证文件
 baidu_verify_*.html
 google*.html
 17dec*.txt
+shenma-site-verification.txt
