@@ -4,7 +4,12 @@ import clsx from 'clsx';
 import { m } from 'framer-motion';
 import { forwardRef } from 'react';
 
-import { NoteIcon, ShareIcon } from '@/components/Icons';
+import {
+  ExternalLink,
+  NoteIcon,
+  ShareIcon,
+  TwitterIcon,
+} from '@/components/Icons';
 
 import useCurrentUrl from '@/hooks/useCurrentUrl';
 
@@ -38,6 +43,33 @@ const ShareItemButton = forwardRef(
   )
 );
 
+interface ShareItemLinkProps extends ShareItemProps {
+  href: string;
+  onClick: () => void;
+}
+
+const ShareItemLink = forwardRef(
+  (
+    { href, active, onClick, children }: ShareItemLinkProps,
+    ref: Ref<HTMLAnchorElement>
+  ) => (
+    <a
+      ref={ref}
+      href={href}
+      onClick={onClick}
+      target="_blank"
+      rel="noreferrer nofollow"
+      className={clsx(
+        'flex w-full items-center gap-3 px-4 py-2 text-[13px]',
+        ['hover:bg-slate-100', 'hover:dark:bg-[#1d263a]'],
+        [active && ['bg-slate-100', 'dark:bg-[#1d263a]']]
+      )}
+    >
+      {children}
+    </a>
+  )
+);
+
 const animation = {
   hide: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.18 } },
@@ -59,6 +91,10 @@ function ShareButton({ onItemClick = () => {} }: ShareButtonProps) {
     } catch (err) {
       //
     }
+  };
+
+  const handleTwitter = () => {
+    onItemClick('TWITTER');
   };
 
   return (
@@ -94,6 +130,21 @@ function ShareButton({ onItemClick = () => {} }: ShareButtonProps) {
               >
                 分享
               </div>
+              <Menu.Item>
+                {({ active }) => (
+                  <ShareItemLink
+                    active={active}
+                    href={`https://twitter.com/intent/tweet?via=qlADgk&url=${currentUrl}`}
+                    onClick={handleTwitter}
+                  >
+                    <TwitterIcon className={clsx('h-4 w-4')} />
+                    <span className={clsx('flex items-center gap-2')}>
+                      Twitter
+                      <ExternalLink className={clsx('h-3 w-3')} />
+                    </span>
+                  </ShareItemLink>
+                )}
+              </Menu.Item>
               <div
                 className={clsx(
                   'border-divider-light my-2 border-t',

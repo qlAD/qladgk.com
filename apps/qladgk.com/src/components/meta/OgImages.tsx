@@ -148,7 +148,7 @@ export function PostOgImage({
         <img
           width="48"
           height="48"
-          src="https://github.com/qlad.png?size=48"
+          src="https://oss.qladgk.com/images/qlAD.jpg"
           style={styles.authorAvatar}
         />
         <div style={styles.authorName}>@qlAD</div>
@@ -214,7 +214,7 @@ export function PageOgImage({
         <img
           width="48"
           height="48"
-          src="https://github.com/qlAD.png?size=48"
+          src="https://oss.qladgk.com/images/qlAD.jpg"
           style={styles.authorAvatar}
         />
         <div style={styles.authorName}>@qlAD</div>

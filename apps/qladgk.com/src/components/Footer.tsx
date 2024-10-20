@@ -237,6 +237,11 @@ function Footer() {
                       href: 'https://www.travellings.cn/go.html',
                       isInternal: false,
                     },
+                    {
+                      title: 'Status',
+                      href: 'https://stats.uptimerobot.com/koN8GN5WwV',
+                      isInternal: false,
+                    },
                   ]}
                 />
                 <FooterGroup
