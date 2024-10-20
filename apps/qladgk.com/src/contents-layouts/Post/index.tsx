@@ -5,7 +5,6 @@ import WithTableOfContents from '@/components/layouts/WithTableOfContents';
 import Head from '@/components/meta/Head';
 import SkipNavigation from '@/components/navigations/SkipNavigation';
 import PageHeader from '@/components/PageHeader';
-import TwikooComments from '@/components/TwikooComments';
 
 import { getPostOgImageUrl, getPostStructuredData } from '@/helpers/post';
 
@@ -55,9 +54,6 @@ function Post({
         <PostFooter tags={tags} category={category} />
       </WithTableOfContents>
       <WithReactions contentTitle={title} contentType="POST" />
-      <div className="content-wrapper">
-        <TwikooComments />
-      </div>
     </>
   );
 }

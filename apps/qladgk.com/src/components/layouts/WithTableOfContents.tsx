@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import TableOfContents from '@/components/TableOfContents';
+import TwikooComments from '@/components/TwikooComments';
 
 import type { TTableOfContents } from '@/types';
 import type { PropsWithChildren } from 'react';
@@ -20,7 +21,32 @@ function PageWithMDX({
         'lg:overflow-visible'
       )}
     >
-      <div className={clsx('flex flex-row-reverse gap-8', 'xl:gap-24')}>
+      <div className={clsx('flex flex-row gap-8')}>
+        {/* 左侧 */}
+        <div className={clsx('flex min-w-0 flex-col ')}>
+          {/* 上 */}
+          <div className={clsx('flex flex-row gap-8')}>
+            <div
+              className={clsx(
+                'border-divider-light hidden border-l',
+                'dark:border-divider-dark lg:block'
+              )}
+            />
+
+            <div
+              className={clsx('mdx-contents min-w-0 flex-1 scroll-mt-[86px]')}
+              id="main-contents"
+              data-ss-wrapper
+            >
+              {children}
+            </div>
+          </div>
+          {/* 下 */}
+          <div className={clsx('mt-4')}>
+            <TwikooComments />
+          </div>
+        </div>
+        {/* 右侧 */}
         <div className={clsx('-mt-48 hidden', 'lg:block')}>
           <div
             className={clsx(
@@ -32,19 +58,6 @@ function PageWithMDX({
             <TableOfContents items={tableOfContents} />
           </div>
         </div>
-        <div
-          className={clsx('mdx-contents min-w-0 flex-1 scroll-mt-[86px]')}
-          id="main-contents"
-          data-ss-wrapper
-        >
-          {children}
-        </div>
-        <div
-          className={clsx(
-            'border-divider-light hidden border-l',
-            ' dark:border-divider-dark lg:block'
-          )}
-        />
       </div>
     </div>
   );
