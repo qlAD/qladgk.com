@@ -44,8 +44,6 @@ function EssayContents() {
     <div className={clsx('content-wrapper mdx-contents')}>
       {essays.map((essay) => (
         <div key={essay.id} className="essay">
-          {' '}
-          {/* 使用唯一标识符作为 key */}
           <div className="header">
             <div className="avatar-wrapper">
               <Image
@@ -53,7 +51,7 @@ function EssayContents() {
                 alt={`${essay.username} 的头像`}
                 width={50}
                 height={50}
-                className="avatar" // 添加类名
+                className="avatar"
               />
             </div>
             <div>
@@ -69,15 +67,13 @@ function EssayContents() {
                 : [essay.images]
               ).map((img, imgIndex) => (
                 <Zoom key={img}>
-                  {' '}
-                  {/* 使用唯一的 img URL 作为 key */}
-                  {essay.images.length > 1 ? ( // 判断图片数量
+                  {essay.images.length > 1 ? (
                     <div className="image-wrapper">
                       <Image
                         src={img}
                         alt={`图片 ${imgIndex + 1}`}
-                        layout="fill" // 使图片填充父元素
-                        objectFit="cover" // 裁剪以适应正方形
+                        layout="fill"
+                        objectFit="cover"
                         className="zoomable-image"
                       />
                     </div>
@@ -85,8 +81,8 @@ function EssayContents() {
                     <Image
                       src={img}
                       alt={`图片 ${imgIndex + 1}`}
-                      width={200} // 单张图片时宽度为200
-                      height={100} // 高度可以设定为100或其他
+                      width={200}
+                      height={100}
                       className="zoomable-image"
                     />
                   )}
