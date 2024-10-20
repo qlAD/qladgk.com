@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Sidebar from '@/components/Sidebar';
 import TableOfContents from '@/components/TableOfContents';
 import TwikooComments from '@/components/TwikooComments';
 
@@ -56,6 +57,13 @@ function PageWithMDX({
             )}
           >
             <TableOfContents items={tableOfContents} />
+            <div
+              className={clsx(
+                'border-divider-light my-2 border-t',
+                'dark:border-divider-dark'
+              )}
+            />
+            <Sidebar />
           </div>
         </div>
       </div>
