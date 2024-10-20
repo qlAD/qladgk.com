@@ -123,9 +123,9 @@ function LinksContents() {
       ))}
 
       <h2 className="mt-12 text-xl font-bold">友链申请格式</h2>
-      <div className="mt-4 rounded-lg border bg-gray-100 p-4 dark:bg-gray-700">
+      <div className="mt-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
         <p>如果您希望与我交换友链，请使用以下格式申请：</p>
-        <pre className="mt-4 rounded bg-gray-200 p-2 text-sm">
+        <pre className="mt-4 rounded bg-gray-200 p-2 text-sm dark:bg-gray-900">
           <code>
             {JSON.stringify(
               {

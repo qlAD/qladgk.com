@@ -10,7 +10,7 @@ const Websites = [
   {
     name: '大大的小蜗牛',
     url: 'https://www.eallion.com',
-    preview: 'https://via.placeholder.com/300x150',
+    preview: 'https://oss.qladgk.com/images/20241020173554.png',
     avatar: 'https://www.eallion.com/eallion.png',
     description: '机会总是垂青于有准备的人',
     category: '推荐',
@@ -18,7 +18,7 @@ const Websites = [
   {
     name: 'Spencer',
     url: 'https://spencerwoo.com/',
-    preview: 'https://via.placeholder.com/300x150',
+    preview: 'https://oss.qladgk.com/images/20241020173655.png',
     avatar: 'https://avatars.githubusercontent.com/u/32114380?v=4',
     description: '北京理工大学博士生',
     category: '推荐',
@@ -35,7 +35,7 @@ const Websites = [
   {
     name: 'Leonus',
     url: 'https://blog.leonus.cn/',
-    preview: 'https://via.placeholder.com/300x150',
+    preview: 'https://oss.qladgk.com/images/20241020174309.png',
     avatar: 'https://q1.qlogo.cn/g?b=qq&nk=990320751&s=5',
     description: '进一寸有进一寸的欢喜。',
     category: '技术',
