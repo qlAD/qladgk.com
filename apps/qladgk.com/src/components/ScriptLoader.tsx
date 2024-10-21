@@ -43,8 +43,7 @@ function ScriptLoader() {
         setElementText('userAgentOs', navigator.platform);
         setElementText('userAgentBrowser', browserInfo);
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('获取 IP 信息失败:', error); // 使用 console.error 避免警告
+        // console.error('获取 IP 信息失败:', error); // 使用 console.error 避免警告
       }
     };
 
