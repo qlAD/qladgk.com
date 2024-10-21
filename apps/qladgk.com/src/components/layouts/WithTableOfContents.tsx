@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/sidebar/Sidebar';
 import TableOfContents from '@/components/TableOfContents';
 import TwikooComments from '@/components/TwikooComments';
 
@@ -22,7 +22,7 @@ function PageWithMDX({
         'lg:overflow-visible'
       )}
     >
-      <div className={clsx('flex flex-row gap-8')}>
+      <div className={clsx('flex flex-row gap-6')}>
         {/* 左侧 */}
         <div className={clsx('flex min-w-0 flex-col ')}>
           {/* 上 */}
@@ -57,13 +57,8 @@ function PageWithMDX({
             )}
           >
             <TableOfContents items={tableOfContents} />
-            <div
-              className={clsx(
-                'border-divider-light my-2 border-t',
-                'dark:border-divider-dark'
-              )}
-            />
-            <Sidebar />
+            <div className={clsx('my-6')} />
+            <Sidebar show={['publicAccount', 'recentArticles']} />
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
+import Sidebar from '@/components/sidebar/Sidebar';
+
 import useContentMeta from '@/hooks/useContentMeta';
 
 import PostPreview from '@/contents/blog/PostPreview';
@@ -8,7 +10,7 @@ import PostPreview from '@/contents/blog/PostPreview';
 import type { TPostFrontMatter } from '@/types';
 
 const PINNED_POST = 'how-i-built-my-blog';
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 5;
 
 export type BlogContentsProps = {
   posts: Array<{
@@ -50,8 +52,7 @@ function BlogContents({ posts }: BlogContentsProps) {
 
   const renderPageButtons = () => {
     const buttons = [];
-    // eslint-disable-next-line no-plusplus
-    for (let i = 1; i <= totalPages; i++) {
+    for (let i = 1; i <= totalPages; i += 1) {
       if (
         i === 1 ||
         i === totalPages ||
@@ -96,14 +97,18 @@ function BlogContents({ posts }: BlogContentsProps) {
   };
 
   return (
-    <div className={clsx('content-wrapper')}>
-      <div
-        className={clsx(
-          'flex flex-col gap-8',
-          'md:flex-row md:gap-8 lg:gap-24'
-        )}
-      >
-        <div className={clsx('md:w-64')}>{/* TODO: Filter Posts */}</div>
+    <div className={clsx('content-wrapper flex flex-col gap-8')}>
+      <div className={clsx('flex flex-col gap-6 md:flex-row')}>
+        {/* 侧边栏 */}
+        <div className={clsx('w-full md:w-80')}>
+          <div className={clsx('sticky top-24', 'space-y-6')}>
+            <Sidebar
+              show={['tags', 'categories', 'recentArticles', 'publicAccount']}
+            />
+          </div>
+        </div>
+
+        {/* 主内容 */}
         <div className={clsx('flex-1')}>
           {pinnedPost && (
             <div
@@ -148,13 +153,13 @@ function BlogContents({ posts }: BlogContentsProps) {
                   'md:mb-4 md:gap-6'
                 )}
               >
-                <div
+                {/* <div
                   className={clsx(
                     'border-divider-light mt-14 hidden w-8 -translate-y-1 border-b',
                     'md:mt-16 md:w-20 lg:block',
                     'dark:border-divider-dark'
                   )}
-                />
+                /> */}
                 <div className={clsx('flex-1')}>
                   <PostPreview
                     slug={slug}
@@ -174,10 +179,11 @@ function BlogContents({ posts }: BlogContentsProps) {
         </div>
       </div>
 
+      {/* 分页按钮 */}
       <div className="mt-8 flex flex-col items-center">
         <div className="flex justify-center space-x-2">
           <button
-            type="button" // Add type attribute
+            type="button"
             className={clsx('btn rounded-md px-4 py-2', {
               'cursor-not-allowed opacity-50': currentPage === 1,
             })}
@@ -190,7 +196,7 @@ function BlogContents({ posts }: BlogContentsProps) {
           {renderPageButtons()}
 
           <button
-            type="button" // Add type attribute
+            type="button"
             className={clsx('btn rounded-md px-4 py-2', {
               'cursor-not-allowed opacity-50': currentPage === totalPages,
             })}
@@ -202,7 +208,7 @@ function BlogContents({ posts }: BlogContentsProps) {
             下一页
           </button>
         </div>
-        <div className="mt-2 text-sm">
+        <div className="mt-2 text-center text-sm">
           {`第 ${currentPage} 页，共 ${totalPages} 页`}
         </div>
       </div>
