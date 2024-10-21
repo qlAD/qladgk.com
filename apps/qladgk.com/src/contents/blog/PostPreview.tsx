@@ -37,7 +37,7 @@ function PostPreview({
           pinned
             ? [
                 'border-divider-light',
-                'sm:border sm:p-4 md:mt-6 md:p-6',
+                'sm:border sm:p-4 md:p-6',
                 'dark:border-divider-dark',
               ]
             : ['sm:p-4 md:p-6']
